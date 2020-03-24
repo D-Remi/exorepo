@@ -82,7 +82,7 @@ class BookController extends AbstractController
     {
         $book = $bookRepository->find($id);
 
-        $book->setTitle('titre modifier 2');
+        $book->setTitle('titre requin 2');
 
         $entityManager->persist($book);
         $entityManager->flush();
@@ -90,4 +90,14 @@ class BookController extends AbstractController
         return new Response('titre modifier');
     }
 
+    /**
+     * @Route("search", name="search_book")
+     */
+
+    public function searchInResume(BookRepository $bookRepository)
+    {
+        $books = $bookRepository->getSearchInResume();
+
+        dump($books); die;
+    }
 }
