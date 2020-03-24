@@ -24,6 +24,24 @@ h1{
     height: auto;
 }
 
+article{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    overflow: scroll;
+}
+
+.container{
+    border: #fc6a03 2px solid;
+    border-radius: 16px;
+    text-align: center;
+    width: 30%;
+    height: 150px;
+}
+
 footer{
     display: flex;
     padding: 10px 10px;
