@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\BookRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,5 +32,25 @@ class BookController extends AbstractController
         return $this->render('showbook.html.twig',[
             'book' => $book
         ]);
+    }
+
+    /**
+     * @Route("insert", name="insert_book")
+     */
+
+    public function insertBook(EntityManagerInterface $entityManager)
+    {
+        $book = new Book();
+
+        $book->setTitle('titre de mon book');
+        $book->setAuthor('remi');
+        $book->setResume('le roi du dev');
+        $book->setNbPages(100);
+
+
+        $entityManager->persist($book);
+        $entityManager->flush();
+
+        return new Response('livre insérer');
     }
 }
