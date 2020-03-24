@@ -9,14 +9,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Book;
 
-class HomeController extends AbstractController
+class BookController extends AbstractController
 {
     /**
      * @Route("/", name="book")
      */
-    public function books(bookRepository $bookrepository)
+    public function books(bookRepository $bookRepository)
     {
-        $books = $bookrepository->findall();
+        $books = $bookRepository->findAll();
         return $this->render('book.html.twig',[
             'books' => $books
         ]);
@@ -25,10 +25,11 @@ class HomeController extends AbstractController
     /**
      * @Route("book/{id}", name="showbook")
      */
-    public function showBook(Book $books)
+    public function showBook(bookRepository $bookRepository,$id)
     {
+        $book = $bookRepository->find($id);
         return $this->render('showbook.html.twig',[
-            'book' => $books
+            'book' => $book
         ]);
     }
 }

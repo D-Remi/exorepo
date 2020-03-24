@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+header{
+    background-image: url("../img/header.jpg");
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 30vh;
+    padding-top: 5px;
+}
+
+h1{
+    color: #fc6a03;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.resp{
+    width: 100%;
+    height: auto;
+}
+
+footer{
+    display: flex;
+    padding: 10px 10px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f3e7e9;
+}
+
+footer .img-footer{
+    width: 10%;
+}

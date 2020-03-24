@@ -2,11 +2,20 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}Symfony library{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <header>
+            {% block header_title %}<h1>Symfony Library</h1>{% endblock %}
+        </header>
+        {% block main %}{% endblock %}
+        <footer>
+            <div class="img-footer"><img src="{{ asset('assets/img/logo.png') }}" class="resp"></div>
+            <ul>
+                <li>Enregistrement</li>
+                <li>Se deconnecter</li>
+            </ul>
+        </footer>
     </body>
 </html>
