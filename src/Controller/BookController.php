@@ -38,14 +38,19 @@ class BookController extends AbstractController
      * @Route("insert", name="insert_book")
      */
 
-    public function insertBook(EntityManagerInterface $entityManager)
+    public function insertBook(EntityManagerInterface $entityManager,Request $request)
     {
+        $title = $request->query->get('title');
+        $author = $request->query->get('author');
+        $resume = $request->query->get('resume');
+        $nbpages = $request->query->get('nbpages');
+
         $book = new Book();
 
-        $book->setTitle('titre de mon book');
-        $book->setAuthor('remi');
-        $book->setResume('le roi du dev');
-        $book->setNbPages(100);
+        $book->setTitle($title);
+        $book->setAuthor($author);
+        $book->setResume($resume);
+        $book->setNbPages($nbpages);
 
 
         $entityManager->persist($book);

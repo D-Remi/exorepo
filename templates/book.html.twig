@@ -3,16 +3,15 @@
 {% block main %}
     {% for book in books %}
         <article>
-            <h2>{{ book.title }}</h2>
-            <p>{{ book.resume }}</p>
-            <div><img src="http://placehold.it/150x300"></div>
-            <br>
-            <span> Auteur du livre : {{ book.author }}</span>
-            <br>
-            <strong> Nombre de Pages: {{ book.nbpages }}</strong>
-            <br>
-            <a href="{{ path('showbook', {'id': book.id}) }}">Voir le livre</a>
-            <hr>
+                <h2>{{ book.title }}</h2>
+                <p>{{ book.resume }}</p>
+                <div><img src="http://placehold.it/150x300"></div>
+                <br>
+                <span> Auteur du livre : {{ book.author }}</span>
+                <br>
+                <strong> Nombre de Pages: {{ book.nbpages }}</strong>
+                <br>
+                <a href="{{ path('showbook', {'id': book.id}) }}">Voir le livre</a>
         </article>
     {% endfor %}
 {% endblock %}
