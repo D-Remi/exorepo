@@ -9,9 +9,10 @@
                 <!--0<div><img src="http://placehold.it/150x300"></div>-->
                 <p> Auteur du livre : {{ book.author }}</p>
                 <p> Nombre de Pages: {{ book.nbpages }}</p>
-                <div><
-                    <a href="{{ path('showbook', {'id': book.id}) }}">Voir le livre</a>
+                <div>
+                    <a href="{{ path('show_book', {'id': book.id}) }}">Voir le livre</a>
                     <a href="{{ path('delete_book', {'id': book.id}) }}">supprimer le livre</a>
+                    <a href="{{ path('update_book', {'id': book.id}) }}">modifier le livre</a>
                 </div>
             </div>
         {% endfor %}

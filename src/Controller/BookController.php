@@ -24,7 +24,7 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("book/{id}", name="showbook")
+     * @Route("book/{id}", name="show_book")
      */
     public function showBook(bookRepository $bookRepository,$id)
     {
@@ -73,4 +73,21 @@ class BookController extends AbstractController
 
         return new Response('livre delete');
     }
+
+    /**
+     * @Route("update/{id}", name="update_book")
+     */
+
+    public function updateBook(EntityManagerInterface $entityManager,bookRepository $bookRepository,$id)
+    {
+        $book = $bookRepository->find($id);
+
+        $book->setTitle('titre modifier 2');
+
+        $entityManager->persist($book);
+        $entityManager->flush();
+
+        return new Response('titre modifier');
+    }
+
 }
