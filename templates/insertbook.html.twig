@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <article>
+        <div>
+            {{ form_start(formBook) }}
+                <div>
+                    <label>entrer le titre du livre</label>
+                    {{ form_row(formBook.title, {'attr': {'placeholder': 'titre du livre'}}) }}
+                </div>
+                <div>
+                    <label>Enter le nom de l'auteur</label>
+                    {{ form_row(formBook.author, {'attr': {'placeholder': 'nom de l\'auteur'}}) }}
+                </div>
+                <div>
+                    <label>entrer la description du livre</label>
+                    {{ form_row(formBook.resume, {'attr': {'placeholder': 'description du livre'}}) }}
+                </div>
+                <div>
+                    <label>Renseigner le nombre de pages</label>
+                    {{ form_row(formBook.nbpages, {'attr': {'placeholder': 'nombre de page'}}) }}
+                </div>
+                <div>
+                    <button type="submit">Ajouter le livre</button>
+                </div>
+            {{ form_end(formBook) }}
+        </div>
+    </article>
+{% endblock %}

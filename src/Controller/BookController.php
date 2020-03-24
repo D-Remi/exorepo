@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Repository\BookRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -24,7 +25,7 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("book/{id}", name="show_book")
+     * @Route("books/{id}", name="show_book")
      */
     public function showBook(bookRepository $bookRepository,$id)
     {
@@ -35,28 +36,46 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("insert", name="insert_book")
+     * @Route("book/insert", name="insert_book")
      */
 
-    public function insertBook(EntityManagerInterface $entityManager,Request $request)
+    public function insertBook(Request $request,EntityManagerInterface $entityManager)
     {
-        $title = $request->query->get('title');
+        $book = new Book();
+
+        $form = $this->createFormBuilder($book)
+                    ->add('title')
+                    ->add('author')
+                    ->add('resume')
+                    ->add('nbpages')
+                    ->getForm();
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $entityManager->persist($book);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('book');
+        }
+        /**
+         $title = $request->query->get('title');
         $author = $request->query->get('author');
         $resume = $request->query->get('resume');
         $nbpages = $request->query->get('nbpages');
-
-        $book = new Book();
 
         $book->setTitle($title);
         $book->setAuthor($author);
         $book->setResume($resume);
         $book->setNbPages($nbpages);
 
-
         $entityManager->persist($book);
         $entityManager->flush();
 
         return new Response('livre insérer');
+         **/
+        return $this->render('insertbook.html.twig',[
+            'formBook' => $form->createView()
+        ]);
     }
 
     /**
