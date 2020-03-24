@@ -12,6 +12,8 @@
                 <strong> Nombre de Pages: {{ book.nbpages }}</strong>
                 <br>
                 <a href="{{ path('showbook', {'id': book.id}) }}">Voir le livre</a>
+                <br>
+                <a href="{{ path('delete_book', {'id': book.id}) }}">supprimer le livre</a>
         </article>
     {% endfor %}
 {% endblock %}
