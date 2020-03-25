@@ -8,7 +8,7 @@ use App\Entity\Auteur;
 use App\Repository\AuteurRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
@@ -42,10 +42,14 @@ class AuteurController extends AbstractController
 
     /**
     * @Route("/auteurs/insert", name="insert_auteur")
+     * @Route("/auteurs/{id}/edit", name="edit_auteur")
+     *
     */
-    public function insertAuteur(Request $request,EntityManagerInterface $entityManager,AuteurRepository $auteurRepository)
+    public function insertAuteur(Request $request,EntityManagerInterface $entityManager,Auteur $auteur = null)
     {
-        $auteur = new Auteur();
+        if(!$auteur){
+            $auteur = new Auteur();
+        }
 
         $form = $this->createFormBuilder($auteur)
             ->add('name')

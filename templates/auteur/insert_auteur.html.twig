@@ -5,26 +5,26 @@
         {{ form_start(formAuteur) }}
         <div>
             <label>entrer le nom de l'auteur</label><br>
-            {{ form_widget(formAuteur.name, {'attr': {'placeholder': 'titre du livre'}}) }}
+            {{ form_widget(formAuteur.name, {'attr': {'placeholder': 'nom de l auteur'}}) }}
         </div>
         <div>
             <label>Enter le prenom de l'auteur</label><br>
-            {{ form_widget(formAuteur.firstname, {'attr': {'placeholder': 'nom de l\'auteur'}}) }}
+            {{ form_widget(formAuteur.firstname, {'attr': {'placeholder': 'prenom de l auteur'}}) }}
         </div>
         <div>
             <label>entrer  sa dates de naissance </label><br>
-            {{ form_widget(formAuteur.birthDate, {'attr': {'placeholder': 'description du livre'}}) }}
+            {{ form_widget(formAuteur.birthDate) }}
         </div>
         <div>
             <label>entrer la dates de sa mort</label><br>
-            {{ form_widget(formAuteur.deathDate, {'attr': {'placeholder': 'nombre de page'}}) }}
+            {{ form_widget(formAuteur.deathDate) }}
         </div>
         <div>
             <label>entrer sa biographie</label><br>
-            {{ form_widget(formAuteur.biography, {'attr': {'placeholder': 'nombre de page'}}) }}
+            {{ form_widget(formAuteur.biography, {'attr': {'placeholder': 'mettre biographie'}}) }}
         </div>
         <div>
-            <button type="submit">Ajouter l'auteur</button>
+            <button type="submit">Ajouter lauteur</button>
         </div>
         {{ form_end(formAuteur) }}
     </div>
