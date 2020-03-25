@@ -1,10 +1,6 @@
 {% extends 'base.html.twig'%}
 
 {% block main %}
-    <form method="get" action="{{ path('search_auteur') }}">
-        <input type="text" name="search">
-        <input type="submit" value="valider">
-    </form>
     <article>
         {% for auteur in auteurs %}
             <div class="container">
@@ -13,10 +9,6 @@
                 <div>{{ auteur.birthDate | date("d/m/Y") }}</div>
                 <p>{{ auteur.deathDate | date("d/m/Y") }}</p>
                 <p>{{ auteur.biography }}</p>
-                <div>
-                    <div class="btn-main"><a href="{{ path('show_auteur', {'id': auteur.id}) }}">Voir le l'auteur</a></div>
-                    <div class="btn-main"><a href="{{ path('delete_auteur', {'id': auteur.id}) }}">supprimer l'auteur</a></div>
-                </div>
             </div>
         {% endfor %}
     </article>

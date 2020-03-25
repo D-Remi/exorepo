@@ -19,6 +19,20 @@ class AuteurRepository extends ServiceEntityRepository
         parent::__construct($registry, Auteur::class);
     }
 
+    public function getSearchInResume($search){
+
+        $queryBuilder = $this->createQueryBuilder('auteur');
+
+        $query = $queryBuilder->select('auteur')
+            ->where('auteur.name LIKE :search')
+            ->setParameter('search', '%'.$search.'%')
+            ->getQuery();
+
+        $result = $query->getResult();
+
+        return $result;
+    }
+
     // /**
     //  * @return Auteur[] Returns an array of Auteur objects
     //  */

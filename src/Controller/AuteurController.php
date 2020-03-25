@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Entity\Auteur;
 use App\Repository\AuteurRepository;
+use App\Repository\BookRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
@@ -81,5 +82,21 @@ class AuteurController extends AbstractController
         $entityManager->flush();
 
         return new Response('auteur suprimé');
+    }
+
+    /**
+     * @Route("auteurs/search", name="search_auteur")
+     */
+
+    public function searchInResume(AuteurRepository $auteurRepository,Request $request)
+    {
+        $search = $request->query->get('search');
+
+        $auteur = $auteurRepository->getSearchInResume($search);
+
+        return $this->render('/auteur/search.html.twig',[
+            'auteurs' => $auteur,
+            'word' => $search
+        ]);
     }
 }

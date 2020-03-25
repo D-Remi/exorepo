@@ -122,7 +122,6 @@ class BookController extends AbstractController
         return $this->render('search.html.twig',[
             'books' => $books,
             'word' => $search
-
         ]);
     }
 }
