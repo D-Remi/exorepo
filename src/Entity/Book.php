@@ -37,6 +37,11 @@ class Book
      */
     private $nbpages;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Auteur", inversedBy="Book")
+     */
+    private $Auteur;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -87,6 +92,18 @@ class Book
     public function setNbPages(int $nbpages): self
     {
         $this->nbpages = $nbpages;
+
+        return $this;
+    }
+
+    public function getAuteur(): ?Auteur
+    {
+        return $this->Auteur;
+    }
+
+    public function setAuteur(?Auteur $Auteur): self
+    {
+        $this->Auteur = $Auteur;
 
         return $this;
     }
