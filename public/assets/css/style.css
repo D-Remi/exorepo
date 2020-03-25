@@ -33,12 +33,39 @@ article{
     margin: 0 auto;
 }
 
-.container{
+article .container{
     border: #fc6a03 2px solid;
     border-radius: 16px;
     text-align: center;
     width: 30%;
-    height: 150px;
+    height: auto;
+    margin: 20px 0;
+    padding: 10px;
+}
+
+.container div,
+.container h2,
+.container p,
+.btn-main{
+    margin: 5px 0;
+}
+
+.btn-main{
+    padding: 10px 0;
+}
+
+.container div a{
+    background-color: #5eb5e0 ;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    padding: 3px 5px;
+    margin: 20px;
+}
+
+.form-container{
+    text-align: center;
+    margin: 20px 0;
 }
 
 footer{
