@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Controller;
+namespace App\Controller\admin;
 
 
 use App\Entity\Auteur;
@@ -20,30 +20,30 @@ use Symfony\Component\Routing\Annotation\Route;
 class AuteurController extends AbstractController
 {
     /**
-     * @Route("/auteur", name="auteur")
+     * @Route("/admin/auteur", name="admin_auteur")
      */
     public function Auteur(AuteurRepository $auteurRepository)
     {
         $auteur = $auteurRepository->findAll();
-        return $this->render('auteur/auteur.html.twig',[
+        return $this->render('admin/auteur/auteur.html.twig',[
             'auteurs' => $auteur
         ]);
     }
 
     /**
-     * @Route("auteur/{id}", name="show_auteur")
+     * @Route("admin/auteur/show/{id}", name="admin_show_auteur")
      */
     public function showAuteur(AuteurRepository $auteurRepository,$id)
     {
         $auteur = $auteurRepository->find($id);
-        return $this->render('auteur/show_auteur.html.twig',[
+        return $this->render('admin/auteur/show_auteur.html.twig',[
             'auteur' => $auteur
         ]);
     }
 
     /**
-    * @Route("/auteurs/insert", name="insert_auteur")
-     * @Route("/auteurs/{id}/edit", name="edit_auteur")
+    * @Route("/admin/auteurs/insert", name="admin_insert_auteur")
+     * @Route("/admin/auteurs/{id}/edit", name="admin_edit_auteur")
      *
     */
     public function insertAuteur(Request $request,EntityManagerInterface $entityManager,Auteur $auteur = null)
@@ -73,7 +73,7 @@ class AuteurController extends AbstractController
         ]);
     }
     /**
-     * @Route("/auteur/delete/{id}", name="delete_auteur")
+     * @Route("/admin/auteur/delete/{id}", name="admin_delete_auteur")
      */
     public function deleteAuteur(AuteurRepository $auteurRepository,EntityManagerInterface $entityManager,$id){
         $auteur = $auteurRepository->find($id);
@@ -85,7 +85,7 @@ class AuteurController extends AbstractController
     }
 
     /**
-     * @Route("auteurs/search", name="search_auteur")
+     * @Route("/admin/auteurs/search", name="admin_search_auteur")
      */
 
     public function searchInResume(AuteurRepository $auteurRepository,Request $request)
@@ -94,7 +94,7 @@ class AuteurController extends AbstractController
 
         $auteur = $auteurRepository->getSearchInResume($search);
 
-        return $this->render('/auteur/search.html.twig',[
+        return $this->render('admin/auteur/search.html.twig',[
             'auteurs' => $auteur,
             'word' => $search
         ]);

@@ -1,20 +1,42 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: 0;
+    box-sizing: border-box;
 }
 
 header{
-    background-image: url("../img/header.jpg");
-    background-position: bottom center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 30vh;
-    padding-top: 5px;
+    background-color: #AAA;
+    height: 10vh;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+header nav ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav ul li{
+    list-style: none;
+    padding: 0 10px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    margin-right: 1%;
 }
 
 h1{
-    color: #fc6a03;
+    color: #C82829;
     text-align: center;
     margin-top: 15px;
 }
@@ -55,7 +77,7 @@ article .container{
 }
 
 .container div a{
-    background-color: #5eb5e0 ;
+    background-color: #C82829 ;
     text-decoration: none;
     text-transform: uppercase;
     color: white;
@@ -66,6 +88,7 @@ article .container{
 .form-container{
     text-align: center;
     margin: 20px 0;
+
 }
 
 footer{
