@@ -1,0 +1,14 @@
+{% extends 'front/base.html.twig'%}
+
+{% block main %}
+    <article>
+        <h2>{{ book.title }}</h2>
+        <p>{{ book.resume }}</p>
+        <div><img src="http://placehold.it/60x100"></div>
+        <br>
+        <span> Auteur du livre : {{ book.author }}</span>
+        <br>
+        <strong> Nombre de Pages: {{ book.nbpages }}</strong>
+        <hr>
+    </article>
+{% endblock %}

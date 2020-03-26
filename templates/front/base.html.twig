@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Symfony library{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    </head>
+    <body>
+        <header>
+            {% block header_title %}<h1>Symfony Library</h1>{% endblock %}
+            <nav>
+                <ul>
+                    <li><a href="#">Connexion</a></li>
+                </ul>
+            </nav>
+        </header>
+        {% block main %}{% endblock %}
+        <footer>
+            <div class="img-footer"><img src="{{ asset('assets/img/logo.png') }}" class="resp"></div>
+            <ul>
+                <li>Enregistrement</li>
+                <li>Se deconnecter</li>
+            </ul>
+        </footer>
+    </body>
+</html>

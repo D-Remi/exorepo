@@ -87,7 +87,6 @@ class AuteurController extends AbstractController
     /**
      * @Route("/admin/auteurs/search", name="admin_search_auteur")
      */
-
     public function searchInResume(AuteurRepository $auteurRepository,Request $request)
     {
         $search = $request->query->get('search');

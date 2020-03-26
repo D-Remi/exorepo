@@ -1,0 +1,20 @@
+{% extends 'front/base.html.twig'%}
+
+{% block main %}
+    <form method="get" action="{{ path('search_book') }}">
+        <input type="text" name="search">
+        <input type="submit" value="valider">
+    </form>
+    <article>
+        {% for book in books %}
+            <div class="container">
+                <h2>{{ book.title }}</h2>
+                <div><img src="http://placehold.it/75x120" class="resp"></div>
+                <p>{{ book.author }}</p>
+                <div>
+                    <div class="btn-main"><a href="{{ path('show_book', {'id': book.id}) }}">Voir le livre</a></div>
+                </div>
+            </div>
+        {% endfor %}
+    </article>
+{% endblock %}
