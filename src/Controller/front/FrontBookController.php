@@ -16,7 +16,8 @@ class FrontBookController extends AbstractController{
      */
     public function books(BookRepository $frontbookRepository)
     {
-        $books = $frontbookRepository->findAll();
+        $books = $frontbookRepository->findby([],['id'=> 'DESC'],2,0);
+
         return $this->render('front/book/book.html.twig',[
             'books' => $books
         ]);
