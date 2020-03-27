@@ -45,7 +45,6 @@ class BookController extends AbstractController
 
         $form = $this->createFormBuilder($book)
                     ->add('title')
-                    ->add('author')
                     ->add('resume')
                     ->add('nbpages')
                     ->getForm();

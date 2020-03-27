@@ -27,10 +27,6 @@ class Book
      */
     private $resume;
 
-    /**
-     * @orm\Column(type="string", length=255)
-     */
-    private $author;
 
     /**
      * @ORM\Column(type="integer")
@@ -67,18 +63,6 @@ class Book
     public function setResume(string $resume): self
     {
         $this->resume = $resume;
-
-        return $this;
-    }
-
-    public function getAuthor(): ?string
-    {
-        return $this->author;
-    }
-
-    public function setAuthor(string $author): self
-    {
-        $this->author = $author;
 
         return $this;
     }

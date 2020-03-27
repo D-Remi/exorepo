@@ -5,10 +5,8 @@
         <h2>{{ book.title }}</h2>
         <p>{{ book.resume }}</p>
         <div><img src="http://placehold.it/60x100"></div>
-        <br>
-        <span> Auteur du livre : {{ book.author }}</span>
-        <br>
-        <strong> Nombre de Pages: {{ book.nbpages }}</strong>
+        <p>{{ book.auteur.name }}</p>
+        <p> Nombre de Pages: {{ book.nbpages }}</p>
         <hr>
     </article>
 {% endblock %}
