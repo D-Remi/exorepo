@@ -3,8 +3,10 @@
 namespace App\Controller\admin;
 
 use App\Repository\BookRepository;
+use App\Repository\AuteurRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -39,9 +41,14 @@ class BookController extends AbstractController
      * @Route("/admin/book/insert", name="admin_insert_book")
      */
 
-    public function insertBook(Request $request,EntityManagerInterface $entityManager)
+    public function insertBook(Request $request,
+                               EntityManagerInterface $entityManager
+    )
     {
         $book = new Book();
+
+
+
 
         $form = $this->createFormBuilder($book)
                     ->add('title')
